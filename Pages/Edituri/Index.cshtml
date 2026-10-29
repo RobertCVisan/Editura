@@ -1,0 +1,32 @@
+﻿@page
+@model Editura.Pages.Edituri.IndexModel
+@{
+}
+<br>  
+<h2>Lista de Edituri   </h2>
+<a class='btn btn-primary btn-sm' href='/Edituri/Create'>Editura noua</a>
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Nume</th>
+        <th>Adresa</th>
+        <th>Contact</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listEdituri)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.adress</td>
+                <td>@item.contact</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Edituri/Edit?id=@item.ID_Editura">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Edituri/Delete?id=@item.ID_Editura">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

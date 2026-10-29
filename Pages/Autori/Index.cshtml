@@ -1,0 +1,32 @@
+﻿@page
+@model Editura.Pages.Autori.IndexModel
+@{
+}
+<br>
+<h2>Lista de Autori  </h2>
+<a class='btn btn-primary btn-sm' href='/Autori/Create'>Autor nou</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nume</th>
+            <th>Adresa</th>
+            <th>contact</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listAutori)
+        {
+            <tr>
+                <td>@item.nume</td>
+                <td>@item.adresa</td>
+                <td>@item.contacte</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Autori/Edit?id=@item.ID_Autor">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Autori/Delete?id=@item.ID_Autor">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

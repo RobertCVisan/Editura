@@ -1,0 +1,193 @@
+﻿@page
+@model Editura.Pages.InterogariSimple.InterogariModel
+@{
+    ViewData["Title"] = "Interogari";
+}
+
+<h2>Rezultate Interogare simpla unu: Selectați autorii care au scris cărți publicate după anul 1900</h2>
+
+@if (Model.QueryResults1.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults1.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults1)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+
+<h2>Rezultate Interogare simpla doi: Selectați cărțile cu titlurile lor și numărul de autori pentru fiecare carte</h2>
+
+@if (Model.QueryResults2.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults2.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults2)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>rezultate Interogare simpla trei: Selectați cărțile publicate înainte de anul 1900, cu titlurile și numărul de genuri pentru fiecare carte</h2>
+
+@if (Model.QueryResults3.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults3.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults3)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>Rezultate Interogare simpla patru:Cea mai ieftină editură și prețul mediu al cărților</h2>
+
+@if (Model.QueryResults4.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults4.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults4)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>Rezultate Interogare simpla 5: Cărțile scrise de un anumit autor</h2>
+
+<form method="get">
+    <label for="autorNume">Nume autor:</label>
+    <input type="text" id="autorNume" name="autorNume" required>
+    <button type="submit">Caută</button>
+</form>
+
+@if (Model.QueryResults5 != null && Model.QueryResults5.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults5.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults5)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>Rezultate Interogare simpla 6: Selectam editurile si cartile publicate de ele</h2>
+
+@if (Model.QueryResults6 != null && Model.QueryResults6.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults6.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults6)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}

@@ -1,0 +1,133 @@
+﻿@page
+@model Editura.Pages.InterogariComplexe.InterogariModel
+@{
+    ViewData["Title"] = "Interogari";
+}
+
+<h2>Selectam numele autorilor si titlurile cartilor pentru carti publicate de o editura din bucuresti si care sunt publicate pe o data mai mica decat maximul dintre toti anii de publicare  </h2>
+
+@if (Model.QueryResults1.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults1.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults1)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+
+<h2>Selectam toate genurile literare care au cel puțin o carte publicată de editura cu cele mai multe cărți publicate</h2>
+
+@if (Model.QueryResults2.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults2.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults2)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>Selectam toate cărțile scrise de autori care au contribuit la cărți publicate de o anumită editură </h2>
+<form method="get">
+    <label for="edituraNume">Nume autor:</label>
+    <input type="text" id="edituraNume" name="edituraNume" required>
+    <button type="submit">Caută</button>
+</form>
+@if (Model.QueryResults3.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults3.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults3)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+<h2>selectăm cataloagele care au publicat cel puțin o carte cu preț mai mare decat media prețurilor din celelalte cataloage</h2>
+
+@if (Model.QueryResults4.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var header in Model.QueryResults4.First().Item1.Split(','))
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.QueryResults4)
+            {
+                <tr>
+                    @foreach (var item in result.Item2.Split(','))
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu există rezultate pentru această interogare.</p>
+}
+
+
